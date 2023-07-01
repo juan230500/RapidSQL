@@ -1,0 +1,18 @@
+wget https://dl.google.com/go/go1.20.5.linux-amd64.tar.gz
+sudo tar -xvf go1.20.5.linux-amd64.tar.gz
+
+go build .; ./RapidSQL.exe --help
+
+go build .; ./RapidSQL.exe connect --host localhost --port 5432 --user postgres --password admin --dbname testDB
+
+go build .; ./RapidSQL.exe insert --title testTile2 --author testAuthor2
+
+go build .; ./RapidSQL.exe select --where "ID < 30 "
+
+go build .; ./RapidSQL.exe delete --id 1
+
+go build .; ./RapidSQL.exe update --title updated --author testAuthor2 --id 2
+
+go build .; ./RapidSQL.exe exec --query "SELECT * FROM Book"
+
+go build .; ./RapidSQL.exe exec --query "INSERT INTO Book (title, author) VALUES ('titulo1', 'autor1')"
